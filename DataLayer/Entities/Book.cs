@@ -15,7 +15,7 @@ namespace DataLayer.Entities
         public DateTime ReleaseDate { get; set; }
 
         #region Relations
-
+        public Author author { get; set; }
 
         #endregion
     }

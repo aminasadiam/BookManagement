@@ -11,5 +11,10 @@ namespace DataLayer.Entities
         public int ID { get; set; }
         public string FullName { get; set; }
         public string Description { get; set; }
+
+
+        #region Relations
+        public List<Book> books { get; set; }
+        #endregion
     }
 }
