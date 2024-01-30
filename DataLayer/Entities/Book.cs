@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,10 @@ namespace DataLayer.Entities
         public DateTime ReleaseDate { get; set; }
 
         #region Relations
-        public Author author { get; set; }
+
+        [ForeignKey(nameof(AuthorId))]        
+        
+        public Author? Author { get; set; }
 
         #endregion
     }
