@@ -1,4 +1,5 @@
 using DataLayer.Context;
+using DataLayer.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BookConnectionString")));
+builder.Services.AddScoped<BookRepository>();
 
 var app = builder.Build();
 

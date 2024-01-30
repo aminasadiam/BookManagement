@@ -23,5 +23,19 @@ namespace BookManagement.Controllers
             return Ok(book);
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Book> Get(uint id)
+        {
+            var book = bookRepository.GetBookById(id);
+            return Ok(book);
+        }
+
+        [HttpPost]
+        public IActionResult Post(Book book)
+        {
+            var b = bookRepository.InsertBook(book);
+            string url = Url.Action(nameof(Get),"Book",new {Id = b.Id},Request.Scheme);
+            return Created(url,true);
+        }
     }
 }
